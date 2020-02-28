@@ -1,0 +1,43 @@
+body{
+  background-image: linear-gradient(to right,#1f4037, #99f2c8);
+    
+
+  
+
+
+  
+
+  
+
+  }
+  .box-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    
+  }
+  .box{
+    background-color: white;
+     
+    padding:30px;
+    margin:2%;
+   
+    width:20%;
+    border:3px solid white;
+    box-shadow:0 2px 3px 0px orange(0,0,0,0.25);
+    border-radius:3px;
+    transition:.12s all; 
+  }
+  .box-wrap:hover .box{
+    filter:blur(8px);
+    opacity:.9;
+    transform: scale(.98);
+    box-shadow:none;
+  }
+  .box-wrap:hover .box:hover{
+    transform:scale(1);
+    filter:blur(0px);
+    opacity:1;
+    stroke: white;
+    box-shadow:0 8px 20px 2px rgba(0,0,0,0.125);
+  }

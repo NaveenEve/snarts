@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<body class="w3-center w3-animate-left  shake-little">
+    <div class="container-fluid-sm ">
+     <img src="assets\1240561-college-wallpaper-1920x1200-for-phone.jpg" alt="" id="myVideo">
+  
+<div class="row content">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+    
+    <div  class="card-body mt-5 zoom" id="zoom" >
+
+      <form #lo="ngForm" >
+          <div class="form-group">
+              <h4 style="color:white;" > Select ROLE <i class="fa fa-angle-double-down" style="font-size:36px"></i></h4>
+              
+              <label style="color:white;" for="a">Admin</label>
+              <input style="color:white;"class="role" type="radio"  name="role" value="admin" ngModel id="a">
+              <br>
+              <label style="color:white;" for="b">student</label>
+              <input style="color:white;"class="role" type="radio" name="role" value="student" ngModel id="b">
+
+          </div>
+          
+          <div class="form-group">
+             <label style="color:white;" for="un"><i class="fa fa-user" aria-hidden="true"></i>Enter Username</label>
+              <input class="fa fa-user blur" aria-hidden="true" 
+              (click)="blur()" #val="ngModel" style="color:darkblue;" type="text" id="un" name="username" required class="form-control" ngModel>
+            <div *ngIf="val.invalid && val.touched" class="alert alert-warning">
+                Please Enter username to Continue
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label style="color:white;" for="pw"><i class="fa fa-key" aria-hidden="true"></i>Enter password</label>
+            <input #vall="ngModel" style="color:darkblue;" type="password" id="pw" name="password" required class="form-control" ngModel>
+            <div *ngIf="vall.invalid && vall.touched" class="alert alert-warning">
+               <p>Please Enter password to Continue</p> 
+
+            </div>
+        </div>
+        <div class="text-center">
+            <button style="margin-bottom: 150px; " [disabled]="lo.invalid" class="btn btn-success" type="submit" (click)="login(lo.value)"><i class="fas fa-sign-in-alt">Login</i></button>
+        </div>
+
+      </form>
+ 
+
+
+    </div>
+    
+       
+      
+
+
+
+
+    </div>
+    <div class="col-sm-4">  <button class="btn btn-success pull-right" ><a routerLink="/psd"> Trouble Login?</a></button></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>    
+
+<script src="https://kit.fontawesome.com/yourcode.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<router-outlet></router-outlet>
+</body>
+</html>

@@ -1,0 +1,102 @@
+
+<body class="container-fluid-sm" style="  height: 655px;" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+<div class="container-fluid-sm">
+  
+    <!--Generated ids table-->
+    <div class="table text-center">
+        <h1 style="color: white;"><i class="fa fa-user display-4" aria-hidden="true"></i> Student Ids  <button class="btn btn-warning "   data-toggle="modal" data-target="#generate"><i class="fa fa-plus" aria-hidden="true"></i>Generate ID</button></h1>
+        <table class="table" style="    background-image: linear-gradient(to right,#1f4037, #99f2c8); color: white;">
+            <thead>
+                <th>Year</th>
+                <th>Branch</th>
+                <th>BranchhCode</th>
+                <th>Count</th>
+             
+            </thead>
+            <tr *ngFor="let gendata of gendata">
+                <td>{{gendata.year}}</td>
+                <td>{{gendata.branch}}</td>
+                <td>{{gendata.branchcode}}</td>
+                <td style="color: teal;" >{{gendata.count}}</td>
+             
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+<!--Generate id Modal-->
+<div class="modal fade modal-center shadow-lg bg-white " id="generate"  >
+    <div class="modal-dialog modal-sm modal-dialog-centered " >
+        <div class="modal-content" style="background-color: grey ;">
+            <div  class="modal-header  display-4" style="background-color: orange;"><h4  style="color: grey;" class=" display-5 text-center text-white">ID Generator</h4> <button data-dismiss="modal" class="close">X</button> </div>
+            <div class="modal-body">
+
+                <!--Generate id Form-->
+                <form #gen="ngForm" >
+
+                            <!--Year of join-->
+                    <div class="form-group">
+                    <label for="year">Enter Year of Join</label>
+                    <input class="form-control" #year1="ngModel" type="number" name="year" id="year"ngModel required pattern="\d\d\d\d" >
+                    <div *ngIf="year1.invalid && year1.touched " class="alert alert-danger"> please enter year
+                        <div *ngIf=" year1.errors?.pattern">
+                            year should be 4 characters
+                        </div>
+          
+            
+
+                    </div>
+                    </div>
+                    
+                            <!--Branch-->
+                    <div class="form-group">
+                        <label for="branch">Enter Branch</label>
+                      <select  #year2="ngModel" id="branch" name="branch" class="form-control" required ngModel >
+                          <option value="civil">CIVIL</option>
+                          <option value="mech">MECHANICAL</option>
+                          <option value="ece">ECE</option>
+                          <option value="cse">CSE</option>
+                      </select>
+                      <div *ngIf="year2.invalid && year2.touched" class="alert alert-danger">
+                      Please choose Branch
+            
+
+                    </div>
+                        </div>
+
+                         <!--Branch code-->
+                      <div class="form-group">
+                        <label for="branchcode">Enter Branch Code</label>
+                      <select  #year3="ngModel" required id="branchcode"  name="branchcode" class="form-control" ngModel >
+                          <option value="01">CIVIL</option>
+                          <option value="02">MECHANICAL</option>
+                          <option value="03">ECE</option>
+                          <option value="04">CSE</option>
+                      </select>
+                      <div *ngIf="year3.invalid && year3.touched" class="alert alert-danger">
+                        Please choose Branch Code
+              
+  
+                      </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-warning  "  type="submit" (click)="generate(gen.value)">Generate ID</button>
+                        </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer"></div>
+
+
+        </div>
+
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>

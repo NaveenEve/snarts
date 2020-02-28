@@ -1,0 +1,33 @@
+.tb{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  padding: 15px;
+}
+.c{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+  padding: 15px;
+
+
+}
+.flex-container {
+  display: flex;
+}
+.carousel{
+  box-shadow: 20px 0px  80px black;
+}
+body{
+  background-image: linear-gradient(#203A43, #203A43);
+}
+.footer{
+  background: #152F4F;
+  color:white;
+}
+
+ 

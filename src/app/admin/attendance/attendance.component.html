@@ -1,0 +1,115 @@
+<body class="jumbotron" style="height: 650px;" >
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  <i class="fa fa-plus" aria-hidden="true"></i> Upload Student Excel sheet
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Student Attendance Upload</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+       <!--Generate attendance-->
+       <form #ref="ngForm" >
+    
+        <!--Year of join-->
+        <div class="form-group">
+            <label for="year">Enter Year</label>
+          <select id="branch" name="year" class="form-control" ngModel >
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+          </select>
+            </div>
+
+
+        <!--Branch-->
+<div class="form-group">
+    <label for="branch">Enter Branch</label>
+  <select id="branch" name="branch" class="form-control" ngModel >
+      <option value="civil">CIVIL</option>
+      <option value="mech">MECHANICAL</option>
+      <option value="ece">ECE</option>
+      <option value="cse">CSE</option>
+  </select>
+    </div>
+    <!--uploading a file-->
+    <form action="/profile" enctype="multipart/form-data">
+        <input type="file" name="file" (change)="fileUpload($event)"  id="file" ngModel>    <button class="btn btn-warning" (click)=uploadexcel(ref.value) type="submit" >Upload</button></form>
+     
+     
+       
+     
+     </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+       
+        </div>
+  
+      </div>
+    </div>
+  </div>
+            
+                 
+
+
+                
+        
+
+
+        </div>
+        <div class="col-sm-4"></div>
+        
+        
+    </div>
+    <div class="row">
+      
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <h3 style="text-align: center;"><i class="fa fa-clock-o display-5" aria-hidden="true"></i>Attendance</h3>
+            <table class="table">
+                <thead>
+                    <th>Year</th>
+                    <th>Date</th>
+                    <th>Branch</th>
+                    <th>student id</th>
+                    <th>Attendance Status</th>
+                </thead>
+                <tr *ngFor="let attendance of attendancedata">
+                    <td>{{attendance.year}}</td>
+                    <td>{{attendance.date}}</td>
+                    <td>{{attendance.branch}}</td>
+                    <td>{{attendance.studentid}}</td>
+                    <td>{{attendance.attendance}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+  
+
+             
+    
+    
+     
+</body>
+

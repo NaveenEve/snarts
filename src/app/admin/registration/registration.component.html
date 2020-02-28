@@ -1,0 +1,136 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="row" >
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <form #regg="ngForm">
+            
+                <!--first name-->
+            <div class="form-group">
+                <label for="fr">Enter First Name</label>
+                <input class="form-control" type="text" id="fr" required #regg1="ngModel"  name="firstname" ngModel>
+                <div *ngIf= "regg1.touched && regg1.invalid" class="alert alert-danger">
+                    First Name is Required*
+
+                </div>
+                 
+        
+
+            </div>
+       
+
+
+            <div class="form-group">
+                <label for="sc">Enter Last Name</label>
+                <input class="form-control" required type="text" #regg2="ngModel" id="sc"  name="lastname" ngModel>
+                <div *ngIf="regg2.invalid && regg2.touched" class="alert alert-danger">
+                    Last Name is Required*
+
+                </div>
+         
+
+            </div>
+        
+      
+            <div class="form-check-inline">
+                Choose Gender :
+           
+                <label class="form-check-label" for="m">Male</label>
+                <input class="form-check-input " value="male" type="radio" id="m" required name="gender" ngModel>
+                <label class="form-check-label" for="f">Female</label>
+                <input class="form-check-input " value="female" type="radio" id="f" required name="gender" ngModel>
+
+            </div>
+            <br>
+     
+            <div class="form-group">
+                <label for="ph">Enter phone Number</label>
+                <input class="form-control" #regg3=ngModel type="number" pattern="\d\d\d\d\d\d\d\d\d\d"  id="ph"required name="phonenumber" ngModel>
+               <div *ngIf="regg3.touched && regg3.invalid"  class="alert alert-danger"> Field is mandotory
+                <div *ngIf="regg3.errors?.pattern">
+                    Phone Number must be 10 digits
+
+
+                </div>
+
+               </div>
+             
+
+            </div>
+
+            <div class="form-group">
+                <label for="e">Enter Email id</label>
+                <input class="form-control" #regg4=ngModel e type="email" id="e" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email" ngModel>
+
+                <div *ngIf="regg4.touched && regg4.invalid"  class="alert alert-danger"> Field is mandotory
+                    <div *ngIf="regg4.errors?.pattern">
+                        Invalid emailid
+    
+    
+                    </div>
+    
+                   </div>
+            </div>
+
+            <div class="form-group">
+                <label for="d">Department</label>
+                <select name="department" id="d">
+                    <option value="civil">civil</option>
+                    <option value="mech">mech</option>
+                    <option value="ece">ece</option>
+                    <option value="cse">cse</option>
+                    
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label for="p">Postal Address</label>
+                <input class="form-control" #regg5=ngModel type="text" id="p" required name="postaladdress" ngModel>
+                <div *ngIf="regg5.invalid && regg5.touched" class="alert alert-danger">
+                 Address is Required*
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="y">Year of Join</label>
+                <input class="form-control" #regg6=ngModel type="number" id="y" required name="yearofjoin" ngModel>
+                <div *ngIf="regg6.invalid && regg6.touched" class="alert alert-danger">
+                    Year of Join is Required*
+
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="ssc">Enter SSC % </label>
+                <input class="form-control" type="number" id="ssc" required name="ssc" ngModel>
+
+            </div>
+            <div class="form-group">
+                <label for="in">Enter Inter % </label>
+                <input class="form-control" type="number" id="in" required name="inter" ngModel>
+
+            </div>
+            <div class="text-center">
+                <button type="submit" [disabled]="regg.invalid" (click)="reg(regg.value)" class="btn btn-warning"  >Register</button>
+
+
+            </div>
+           
+            
+            
+            
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+    <div class="col-sm-3"></div>
+
+</div>

@@ -1,0 +1,130 @@
+
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 80%;
+  margin-top: 50px;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 400px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+  
+  <div class="row text-center" style="text-align: center;">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">    <h3>Welcome </h3>
+      <h4>{{username}}</h4><button class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i><i class="fa fa-eye" aria-hidden="true"></i>Your Profile</button></div>
+    <div class="col-sm-4"></div>
+
+  </div>
+  <!--student side nav-->
+
+  <!-- The sidebar -->
+<div class="sidebar">
+ 
+  <a routerLink="readmarks">Marks</a>
+  <a routerLink="readattendance">Attendance</a>
+  
+</div>
+
+
+<!-- Page content -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+  <!--modal profile with a table-->
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade"  role="dialog"  style="    background-image: linear-gradient(to top,#c31432 , #240b36);">
+  <div class="modal-dialog modal-lg" >
+ 
+
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div  style="text-align: right; background-image: linear-gradient(to top,#16222A , #3A6073);"> <button style="color: white;"   type="button" class="close" data-dismiss="modal">x</button></div>
+       
+      <div class="modal-header"  style="    background-image: linear-gradient(to top,#16222A , #3A6073);">
+        <div class="row">
+          <div class="col-sm-4"><img src="assets\user-512.png" height="150px" width="150px" alt=""></div>
+          <div class="col-sm-4"><h3 style="color: white;" class="display-5">{{username}} Details</h3></div>
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+  
+      <div class="modal-body"   style= "    background-image: linear-gradient(to top,#16222A , #3A6073);">
+        <!--student table-->
+   <table class="table table-dark"  style="    background-image: linear-gradient(to top,#16222A , #3A6073);">
+     
+<tr> <td>First Name</td>  <td>{{studentdetails.firstname}}</td></tr>
+      
+<tr> <td>Last Name</td>       <td>{{studentdetails.lastname}}</td></tr>
+<tr> <td>Gender</td>       <td>{{studentdetails.gender}}</td></tr>
+<tr> <td>phonenumber</td>       <td>{{studentdetails.phonenumber}}</td></tr>
+<tr> <td>Email</td>     <td>{{studentdetails.email}}</td></tr>
+<tr> <td>Department</td>      <td>{{studentdetails.department}}</td></tr>
+<tr> <td>Postaladdress</td>    <td>{{studentdetails.postaladdress}}</td></tr>
+<tr> <td>year of join</td>    <td>{{studentdetails.yearofjoin}}</td></tr>
+<tr> <td>ssc %</td>   <td>{{studentdetails.ssc}}</td></tr>
+<tr> <td>inter %</td>   <td>{{studentdetails.inter}}</td></tr>
+<tr> <td>Student id</td>   <td>{{studentdetails.studentid}}</td></tr>
+<tr> <td>password</td>  <td>{{studentdetails.password}}</td></tr>
+     
+   </table>
+      </div>
+      <div class="modal-footer" style="    background-image: linear-gradient(to top,#16222A , #3A6073);">
+       
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+   
+</body>
+</html> 
+
+
+  

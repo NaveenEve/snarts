@@ -1,0 +1,92 @@
+<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Navbar main component-->
+
+<nav class=" navbar navbar-expand-sm justify-content-end bg-dark " >
+
+  
+  <div class="container-fluid">
+    <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon">   
+        <i class="fa fa-list-ul" style="font-size:36px; color: blanchedalmond; "></i>
+    </span>
+    </button>
+    <div class="collapse navbar-collapse" id="myNavbar">
+  <ul class="navbar-nav">
+    <a class="navbar-brand" routerLink="home" style="margin-right: 1000px;"><h4>SN ARTS</h4></a>
+
+    
+
+
+
+    <!--Home-->
+    <li class="nav-item">
+      <a class="nav-link"routerLink="home">Home</a>
+    </li>
+
+    <!--Department-->
+    <div class="dropdown">
+      <button class="btn btn-outline text-primary dropdown-toggle " type="button" data-toggle="dropdown">
+      <span class="d">Departments</span></button>
+      <ul class="dropdown-menu">
+        <div class="dropdown-content">
+        <li><a routerLink="ece">ECE</a></li>
+        <li><a routerLink="mechanical">Mechanical</a></li>
+        <li><a routerLink="eee">EEE</a></li>
+        <li><a routerLink="cse">CSE</a></li>
+        <li><a routerLink="civil">Civil</a></li>
+       
+        </div>
+
+     
+      </ul>
+    </div> 
+
+
+
+
+    <!--Abou Us-->
+    <li class="nav-item">
+      <a class="nav-link"  routerLink="aboutus">AboutUs</a>
+
+    </li>
+
+    <!--Contact us-->
+    <li class="nav-item">
+      <a class="nav-link" routerLink="contactus">ContactUs</a>
+
+    </li>
+
+    
+    <!--Login-->
+    <div>
+      <li class="nav-item" *ngIf="!ds.loginstatus">
+        <a class="nav-link"  routerLink="login">Login</a>
+  
+      </li>
+    </div>
+
+    <div>
+      <li class="nav-item" *ngIf="ds.loginstatus">
+        <a class="nav-link"  routerLink="login">Logout</a>
+  
+      </li>
+    </div>
+
+
+
+  </ul>
+  </div>
+
+
+
+</div>
+
+
+</nav>
+
+
+<router-outlet></router-outlet>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</body>

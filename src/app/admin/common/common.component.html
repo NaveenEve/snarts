@@ -1,0 +1,474 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<body style="  background-image: linear-gradient(to right,#1f4037, #99f2c8); height: 650px;" >
+    <div class="container-fluid-sm">
+       
+    
+        <input 
+        type="text" class="text-warning" aria-hidden="true" placeholder="Search By Student_Name" class="form-control mt-5" [(ngModel)]="searchTerm" > 
+         
+
+     
+ 
+      
+
+
+        
+<div class="row ">
+    <div class="col-sm-4"> <button type="button"class="btn btn-success text-white" (click)="downloadPDF()">PDF DOWNLOAd</button></div>
+    <!-- <div class="col-sm-4">    <button type="submit" class="btn btn-primary"
+        (click)="downloadFile()">EXCEL DOWNLOAD</button></div> -->
+
+
+
+<div class="col-sm-4"><!--register rbutton-->
+    <button class="btn btn-warning" data-target="#modal2" data-toggle="modal">
+        <i class="fa fa-plus" aria-hidden="true"></i>   Register student
+    
+    </button></div>
+</div>
+
+    
+
+   
+    
+
+
+<!--Search-->
+<div class="row">
+    <div class="col-sm-3">   <h4 style="color: white;"> Select year :</h4> <select  ngModel (change)="search(searching.value)" #searching id="se">
+        <option value="all">all</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+    </select> </div>
+    <div class="col-sm-6 box">
+
+    </div>
+    <div class="col-sm-3"></div>
+
+</div>
+
+
+   
+
+
+
+
+
+
+
+
+
+<!--Modal with Form and validations-->
+<div class="modal fade shadow=-lg " id="modal2">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header"><h3 style="text-align: center;" >Enter Student Details</h3> <button class="close" data-dismiss="modal">X</button></div>
+            <div class="modal-body">
+                <form #regg="ngForm">
+            
+                    <!--first name-->
+                <div class="form-group">
+                    <label for="fr">Enter First Name</label>
+                    <input class="form-control" type="text" id="fr" required #regg1="ngModel"  name="firstname" ngModel>
+                    <div *ngIf= "regg1.touched && regg1.invalid" class="alert alert-danger">
+                        First Name is Required*
+    
+                    </div>
+                     
+            
+    
+                </div>
+           
+    
+    
+                <div class="form-group">
+                    <label for="sc">Enter Last Name</label>
+                    <input class="form-control" required type="text" #regg2="ngModel" id="sc"  name="lastname" ngModel>
+                    <div *ngIf="regg2.invalid && regg2.touched" class="alert alert-danger">
+                        Last Name is Required*
+    
+                    </div>
+             
+    
+                </div>
+            
+          
+                <div class="form-check-inline">
+                    Choose Gender :
+               
+                    <label class="form-check-label" for="m">Male</label>
+                    <input class="form-check-input " value="male" type="radio" id="m" required name="gender" ngModel>
+                    <label class="form-check-label" for="f">Female</label>
+                    <input class="form-check-input " value="female" type="radio" id="f" required name="gender" ngModel>
+    
+                </div>
+                <br>
+         
+                <div class="form-group">
+                    <label for="ph">Enter phone Number</label>
+                    <input class="form-control" #regg3=ngModel type="number" pattern="\d\d\d\d\d\d\d\d\d\d"  id="ph"required name="phonenumber" ngModel>
+                   <div *ngIf="regg3.touched && regg3.invalid"  class="alert alert-danger"> Field is mandotory
+                    <div *ngIf="regg3.errors?.pattern">
+                        Phone Number must be 10 digits
+    
+    
+                    </div>
+    
+                   </div>
+                 
+    
+                </div>
+    
+                <div class="form-group">
+                    <label for="e">Enter Email id</label>
+                    <input class="form-control" #regg4=ngModel e type="email" id="e" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email" ngModel>
+    
+                    <div *ngIf="regg4.touched && regg4.invalid"  class="alert alert-danger"> Field is mandotory
+                        <div *ngIf="regg4.errors?.pattern">
+                            Invalid emailid
+        
+        
+                        </div>
+        
+                       </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="dd">Department</label>
+                    <select name="department" id="dd"  [ngModel]="departmentsvalue">
+                        <option  value="{{departmentsvalue}}" selected>{{departmentsvalue}}</option>
+                    
+                        
+                    </select>
+    
+                </div>
+                    <div class="form-group">
+
+                    <label for="p">Postal Address</label>
+                    <input class="form-control" #regg5=ngModel type="text" id="p" required name="postaladdress" ngModel>
+                    <div *ngIf="regg5.invalid && regg5.touched" class="alert alert-danger">
+                     Address is Required*
+    
+                    </div>
+    
+                </div>
+    
+                <div class="form-group">
+                    <label for="y">Year of Join</label>
+                    <input class="form-control" #regg6=ngModel type="number" id="y" required name="yearofjoin" ngModel>
+                    <div *ngIf="regg6.invalid && regg6.touched" class="alert alert-danger">
+                        Year of Join is Required*
+    
+                    </div>
+    
+                </div>
+                <div class="form-group">
+                    <label for="ssc">Enter SSC % </label>
+                    <input class="form-control" type="number" id="ssc" required name="ssc" ngModel>
+    
+                </div>
+                <div class="form-group">
+                    <label for="in">Enter Inter % </label>
+                    <input class="form-control" type="number" id="in" required name="inter" ngModel>
+    
+                </div>
+                <div class="text-center">
+                    <button type="submit" [disabled]="regg.invalid" (click)="reg(regg.value)" class="btn btn-warning"  >Register</button>
+    
+    
+                </div>
+               
+                
+                
+                
+    
+    
+    
+    
+            </form>
+
+
+
+            </div>
+            <div class="modal-footer"></div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--modal ending-->
+
+
+<div class="row">
+   
+    <div class="col-sm-12">
+        <div style="overflow-x:auto;">
+
+        <table  class="table  " >
+            <thead style="color: white;"> 
+              
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Studen id</th>
+                <th>Gender</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Departmnet</th>
+                <th>Postal Address</th>
+                <th>year of Join</th>
+                <th>SSC%</th>
+                <th>Inter%</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </thead>
+            
+
+             <tr *ngFor="let f of fobject | search : searchTerm">
+           
+           
+                <td><img src="assets\unnamed.png" height="20px" width="20px" alt=""> {{f.firstname }}</td>
+                <td>{{f.lastname}}</td>
+                <td>{{f.studentid}}</td>
+                <td>{{f.gender}}</td>
+                <td>{{f.phonenumber}}</td>
+                <td>{{f.email}}</td>
+                <td>{{f.department}}</td>
+                <td>{{f.postaladdress}}</td>
+                <td>{{f.yearofjoin}}</td>
+                 <td>{{f.ssc}}</td>
+                 <td>{{f.inter}}</td>
+                 
+
+                 <!--edit Button-->
+
+                 <td><button class="btn btn-secondary" (click)=edata(f) data-toggle="modal" data-target="#modall">Edit</button></td>
+
+                 
+                 <!--Delete Button-->
+
+                 <td><button class="btn btn-secondary" (click)=edata(f) data-toggle="modal" data-target="#modalll">Delete</button></td>
+
+              
+
+            </tr>  
+       
+
+            
+        </table>
+    </div>
+
+
+        <!--Edit Modal-->
+        <div class="modal fade shadow=-lg " id="modall">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header"><h3 style="text-align: center;" >Update Student Details</h3> <button class="close" data-dismiss="modal">X</button></div>
+                    <div class="modal-body">
+                        <form #edit="ngForm">
+                    
+                            <!--first name-->
+                        <div class="form-group">
+                            <label for="fro">Enter First Name</label>
+                            <input class="form-control" type="text" [(ngModel)]="e.firstname" id="fro" required #regg1="ngModel"  name="firstname" ngModel>
+                            <!-- <div *ngIf= "regg1.touched && regg1.invalid" class="alert alert-danger">
+                                First Name is Required*
+            
+                            </div> -->
+                             
+                    
+            
+                        </div>
+                   
+            
+            
+                        <div class="form-group">
+                            <label for="sco">Enter Last Name</label>
+                            <input class="form-control" [(ngModel)]="e.lastname" required type="text" #regg2="ngModel" id="sco"  name="lastname" ngModel>
+                            <!-- <div *ngIf="regg2.invalid && regg2.touched" class="alert alert-danger">
+                                Last Name is Required*
+            
+                            </div> -->
+                     
+            
+                        </div>
+                        <div class="form-group">
+                            <label for="scos">Enter Student id</label>
+                            <input class="form-control" [(ngModel)]="e.studentid" required type="text" #regg2="ngModel" id="scos"  name="studentid" ngModel>
+                          
+                     
+            
+                        </div>
+                    
+                  
+                        <div class="form-check-inline">
+                            Choose Gender :
+                       
+                            <label class="form-check-label" for="mo">Male</label>
+                            <input class="form-check-input " value="male" type="radio" id="mo" required name="gender" ngModel>
+                            <label class="form-check-label" for="fo">Female</label>
+                            <input class="form-check-input " value="female" type="radio" id="fo" required name="gender" ngModel>
+            
+                        </div>
+                        <br>
+                 
+                        <div class="form-group">
+                            <label for="pho">Enter phone Number</label>
+                            <input class="form-control" #regg3=ngModel [(ngModel)]="e.phonenumber" type="number" pattern="\d\d\d\d\d\d\d\d\d\d"  id="pho"required name="phonenumber" ngModel>
+                           <!-- <div *ngIf="regg3.touched && regg3.invalid"  class="alert alert-danger"> Field is mandotory
+                            <div *ngIf="regg3.errors?.pattern">
+                                Phone Number must be 10 digits
+            
+            
+                            </div>
+            
+                           </div> -->
+                         
+            
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="eo">Enter Email id</label>
+                            <input class="form-control" #regg4=ngModel [(ngModel)]="e.email" type="email" id="eo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email" ngModel>
+            
+                            <!-- <div *ngIf="regg4.touched && regg4.invalid"  class="alert alert-danger"> Field is mandotory
+                                <div *ngIf="regg4.errors?.pattern">
+                                    Invalid emailid
+                
+                
+                                </div>
+                
+                               </div> -->
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="do">Department</label>
+                            <select name="department" [ngModel]="departmentsvalue" id="do">
+                            
+                              
+                                
+                            </select>
+            
+                        </div>
+                            <div class="form-group">
+        
+                            <label for="po">Postal Address</label>
+                            <input class="form-control" [(ngModel)]="e.postaladdress" #regg5=ngModel type="text" id="po" required name="postaladdress" ngModel>
+                            <!-- <div *ngIf="regg5.invalid && regg5.touched" class="alert alert-danger">
+                             Address is Required*
+            
+                            </div> -->
+            
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="yo">Year of Join</label>
+                            <input class="form-control" [(ngModel)]="e.yearofjoin" #regg6=ngModel type="number" id="yo" required name="yearofjoin" ngModel>
+                            <!-- <div *ngIf="regg6.invalid && regg6.touched" class="alert alert-danger">
+                                Year of Join is Required*
+            
+                            </div> -->
+            
+                        </div>
+                        <div class="form-group">
+                            <label for="ssco">Enter SSC % </label>
+                            <input class="form-control" [(ngModel)]="e.ssc" type="number" id="ssco" required name="ssc" ngModel>
+            
+                        </div>
+                        <div class="form-group">
+                            <label for="ino">Enter Inter % </label>
+                            <input class="form-control" [(ngModel)]="e.inter" type="number" id="ino" required name="inter" ngModel>
+            
+                        </div>
+                        <div class="text-center">
+                            <button type="submit"  (click)="editing(edit.value)" class="btn btn-warning"  >Update</button>
+            
+            
+                        </div>
+                       
+                        
+                        
+                        
+            
+            
+            
+            
+                    </form>
+        
+        
+        
+                    </div>
+                    <div class="modal-footer"></div>
+        
+                </div>
+        
+            </div>
+        
+        </div>
+        <!--modal ending-->
+
+         <!--Delete Modal-->
+         <div class="modal fade shadow=-lg " id="modalll">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header"><h3 style="text-align: center;" >Delete Student Details</h3> <button class="close" data-dismiss="modal">X</button></div>
+                    <div class="modal-body">
+                        <form #del="ngForm">
+                    
+                           
+                 
+                        <div class="form-group">
+                            <label for="phoos">Enter Student id Number</label>
+                            <input class="form-control" #regg3=ngModel [(ngModel)]="e.studentid" type="any"  id="phoos"required name="studentid" ngModel>
+                           
+                        </div>
+            
+                        
+                        <div class="text-center">
+                            <button type="submit"  (click)="delete(del.value)" class="btn btn-warning"  >Delete</button>
+            
+            
+                        </div>
+                       
+                        
+                        
+                        
+            
+            
+            
+            
+                    </form>
+        
+        
+        
+                    </div>
+                    <div class="modal-footer"></div>
+        
+                </div>
+        
+            </div>
+        
+        </div>
+        <!--modal ending-->
+     
+
+
+
+    </div>
+   
+
+</div>
+
+
+</div>
+
+
+
+</body>
