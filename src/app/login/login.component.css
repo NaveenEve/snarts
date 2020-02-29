@@ -16,36 +16,11 @@ label {
     min-height: 100%;
   }
   
-  /* Add some content at the bottom of the video/page */
-  .content {
-    position: fixed;
-    bottom: 0;
-    background:transparent;
-    color: #f1f1f1;
-    width: 100%;
-    padding: 20px;
-  }
+
   .card-body .card-footer{
       background-image: transparent    ;
   }
-  img {
-    width: 100%    !important;
-    height: auto   !important;
-    
-    
-    
-  
- 
-  }
 
-
-  .videocontent{
-    background-color: transparent;
-    color: slategray;
-    padding: 20px;
-    font-size: 30px;
- 
-  }
   .form-group{
     margin: 0px;
     padding: 0px;
@@ -64,4 +39,23 @@ label {
 
 .form-group {
   color: skyblue;
+}
+.responsive {
+  width: 100%;
+  height: auto;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.bg {
+
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

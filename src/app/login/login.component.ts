@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
   }
   blur(){
   this.property=document.getElementById("myVideo");
-  this.property.style.filter="blur(20px)";
+  this.property.style.filter="blur(5px)";
   
   
 

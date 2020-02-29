@@ -4,3 +4,7 @@
     margin-right: auto;
     width: 50%;
   }
+  .responsive {
+    width: 100%;
+    height: auto;
+  }

@@ -22,5 +22,6 @@ ul {
     color: white;
   }
 body{
-  background-image: linear-gradient(to right,#1f4037, #99f2c8);
+  height: 750px;
+  background-image: linear-gradient(to right,#1f4037, #99f2c8) ;
 }
